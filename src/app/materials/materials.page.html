@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button slot="end" [routerLink]="['/', 'materials', 'cart']" cart class="button fancy-button">
+            <ion-icon slot="icon-only" name="md-cart"></ion-icon><b> Carrito</b></ion-button>
+        <ion-title>Materiales</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item-sliding *ngFor="let item of loadedMaterials" #slidingItem>
+                        <ion-item [routerLink]="['/', 'materials', 'detail', item.id]" detail>
+                            <ion-thumbnail slot="start">
+                                <ion-img [src]="item.image"></ion-img>
+                            </ion-thumbnail>
+                            <ion-label>
+                                <h4>{{ item.name }}</h4>
+
+                                <p>{{ item.quantity }}</p>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item-options>
+                            <ion-item-option (click)="onEditOffer(item.id, slidingItem)">
+                                <ion-icon slot="icon-only" name="create"></ion-icon>
+                            </ion-item-option>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

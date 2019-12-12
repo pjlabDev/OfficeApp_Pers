@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button slot="start">
+            <ion-back-button text="Volver" defaultHref="/materials"></ion-back-button>
+        </ion-button>
+        <ion-title>{{ loadedMaterial.name }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col class="ion-no-padding">
+                <ion-img [src]="loadedMaterial.image"></ion-img>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <div class="ion-padding ion-text-center">
+                    <h3>{{ loadedMaterial.description }}</h3>
+                    <h4>Cantidad: {{ loadedMaterial.quantity }}</h4>
+                    <h4>{{ loadedMaterial.price }} €</h4>
+                    <ion-button [routerLink]="['/', 'materials', 'buy', loadedMaterial.id]" buy>
+                        <ion-icon slot="icon-only" name="logo-usd"></ion-icon><b>Comprar</b></ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button slot="start">
+            <ion-back-button text="Volver" defaultHref="/materials"></ion-back-button>
+        </ion-button>
+        <ion-title>Editar {{ loadedMaterial.name }}</ion-title>
+        <ion-button slot="end">
+            <ion-button (click)="editMaterial()" [disabled]="!form.valid">
+                <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+            </ion-button>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form [formGroup]="form">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Editar titulo</ion-label>
+                        <ion-input type="text" formControlName="title"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Editar descripcion</ion-label>
+                        <ion-textarea rows="2" type="text" formControlName="description"></ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Editar cantidad</ion-label>
+                        <ion-input type="number" formControlName="quantity"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Editar precio</ion-label>
+                        <ion-input type="number" formControlName="price"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>
